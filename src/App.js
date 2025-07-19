@@ -77,7 +77,19 @@ export default function App() {
             setErrorMessage("Application configuration is missing.");
         }
     }, []);
-
+    useEffect(() => {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+            console.log('Service Worker registered:', registration);
+            })
+            .catch(error => {
+            console.error('Service Worker registration failed:', error);
+            });
+        });
+    }
+}, []);
     // --- Firestore Gallery Listener ---
     useEffect(() => {
         if (isAuthReady && db && userId) {
