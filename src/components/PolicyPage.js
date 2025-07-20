@@ -9,7 +9,7 @@ const PolicyPage = ({ policy, onClose }) => {
             content: (
                 <>
                     <p>If you have any questions or concerns, please feel free to reach out to us.</p>
-                    <p><strong>Email:</strong> support@lucidlens.app (Please replace with your actual support email)</p>
+                    <p><strong>Email:</strong> nka271715@gmail.com</p>
                     <p><strong>Address:</strong> Dehradun, Uttarakhand, India</p>
                 </>
             )
@@ -61,30 +61,31 @@ const PolicyPage = ({ policy, onClose }) => {
     if (!selectedPolicy) return null;
 
     return (
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 bg-gradient-to-br from-[#0f0f1a] to-[#1a1a2e] bg-opacity-90 backdrop-blur-sm flex items-center justify-center p-4"
+        onClick={onClose}
+    >
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={onClose}
+            initial={{ scale: 0.95, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.95, y: 20 }}
+            className="bg-[#1c1c2b] border border-[#3a3a5a] shadow-xl rounded-xl p-6 md:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+            onClick={e => e.stopPropagation()}
         >
-            <motion.div
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                className="bg-midnight-blue border border-lavender-mist/30 rounded-lg p-6 md:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
-                onClick={e => e.stopPropagation()}
-            >
-                <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-cormorant text-pale-pink">{selectedPolicy.title}</h2>
-                    <button onClick={onClose} className="text-ethereal-white hover:text-pale-pink"><X size={24} /></button>
-                </div>
-                <div className="prose prose-invert text-ethereal-white/90 font-manrope space-y-4">
-                    {selectedPolicy.content}
-                </div>
-            </motion.div>
+            <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-cormorant text-[#f6ced8]">{selectedPolicy.title}</h2>
+                <button onClick={onClose} className="text-white hover:text-[#f6ced8] transition-colors"><X size={24} /></button>
+            </div>
+            <div className="prose prose-invert text-gray-200 font-manrope space-y-4">
+                {selectedPolicy.content}
+            </div>
         </motion.div>
-    );
+    </motion.div>
+);
+
 };
 
 export default PolicyPage;
