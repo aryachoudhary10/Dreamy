@@ -539,7 +539,7 @@ export default function App() {
                     {/* <button onClick={handleBypassPayment} className="mt-4 px-4 py-2 bg-gray-600 text-white font-manrope rounded-full text-xs">
                         (Dev) Bypass Payment
                     </button> */}
-                    <button onClick={() => handleBypassPayment(db, userId, setErrorMessage)} className="mt-4 px-4 py-2 bg-gray-600 text-white font-manrope rounded-full text-xs">(Dev) Bypass Payment</button>
+                    {/* <button onClick={() => handleBypassPayment(db, userId, setErrorMessage)} className="mt-4 px-4 py-2 bg-gray-600 text-white font-manrope rounded-full text-xs">(Dev) Bypass Payment</button> */}
 
                 </div>
                 <AppFooter onPolicyClick={setActivePolicy} />

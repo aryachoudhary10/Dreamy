@@ -75,21 +75,21 @@ export const handlePayment = async (auth, setErrorMessage) => {
 };
 
 /**
- * DEVELOPMENT ONLY: Bypasses the payment flow for testing.
- * @param {object} db - The Firestore database instance.
- * @param {string} userId - The current user's ID.
- * @param {function} setErrorMessage - The state setter for displaying errors.
- */
-export const handleBypassPayment = async (db, userId, setErrorMessage) => {
-    if (!db || !userId) {
-        setErrorMessage("You must be logged in to bypass payment.");
-        return;
-    }
-    try {
-        const userDocRef = doc(db, 'users', userId);
-        await setDoc(userDocRef, { hasPaid: true }, { merge: true });
-    } catch (error) {
-        console.error("Failed to bypass payment:", error);
-        setErrorMessage("Could not update payment status for testing.");
-    }
-};
+//  * DEVELOPMENT ONLY: Bypasses the payment flow for testing.
+//  * @param {object} db - The Firestore database instance.
+//  * @param {string} userId - The current user's ID.
+//  * @param {function} setErrorMessage - The state setter for displaying errors.
+//  */
+// export const handleBypassPayment = async (db, userId, setErrorMessage) => {
+//     if (!db || !userId) {
+//         setErrorMessage("You must be logged in to bypass payment.");
+//         return;
+//     }
+//     try {
+//         const userDocRef = doc(db, 'users', userId);
+//         await setDoc(userDocRef, { hasPaid: true }, { merge: true });
+//     } catch (error) {
+//         console.error("Failed to bypass payment:", error);
+//         setErrorMessage("Could not update payment status for testing.");
+//     }
+// };
